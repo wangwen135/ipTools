@@ -58,7 +58,6 @@ public class IpAddressGetter {
 
         CloseableHttpResponse response = httpclient.execute(httpGet);
 
-        response = httpclient.execute(httpGet);
         try {
 
             if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK)
