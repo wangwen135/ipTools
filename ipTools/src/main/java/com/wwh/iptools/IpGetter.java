@@ -29,18 +29,19 @@ public class IpGetter {
 
         try {
             HttpGet httpGet = new HttpGet(API);
-            CloseableHttpResponse response1 = httpclient.execute(httpGet);
+            CloseableHttpResponse response = httpclient.execute(httpGet);
             try {
-                System.out.println(response1.getStatusLine());
-                HttpEntity entity1 = response1.getEntity();
+                System.out.println(response.getStatusLine());
+                HttpEntity entity = response.getEntity();
 
                 // 读取字符串
-                String rpString = EntityUtils.toString(entity1);
+                String rpString = EntityUtils.toString(entity);
+                
                 System.out.println(rpString);
 
-                EntityUtils.consume(entity1);
+                EntityUtils.consume(entity);
             } finally {
-                response1.close();
+                response.close();
             }
         } finally {
             httpclient.close();
