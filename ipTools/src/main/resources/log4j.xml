@@ -46,7 +46,7 @@
 
 	<!-- level: FATAL,ERROR,WARN,INFO,DEBUG,TRACE -->
 	<root>
-		<level value="DEBUG" />
+		<level value="INFO" />
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="DailyFile" />
 	</root>

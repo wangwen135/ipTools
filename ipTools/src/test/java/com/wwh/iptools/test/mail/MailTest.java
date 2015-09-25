@@ -1,4 +1,4 @@
-package com.wwh.iptools;
+package com.wwh.iptools.test.mail;
 
 import java.io.IOException;
 import java.util.Properties;
