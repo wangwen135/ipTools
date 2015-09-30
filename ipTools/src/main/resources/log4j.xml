@@ -50,4 +50,5 @@
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="DailyFile" />
 	</root>
+	
 </log4j:configuration>  
