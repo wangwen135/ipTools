@@ -48,7 +48,7 @@
 	<root>
 		<level value="INFO" />
 		<appender-ref ref="STDOUT" />
-		<appender-ref ref="DailyFile" />
+		<appender-ref ref="RollingFile" />
 	</root>
 	
 </log4j:configuration>  

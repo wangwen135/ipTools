@@ -1,5 +1,7 @@
 package com.wwh.iptools;
 
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
@@ -271,7 +273,39 @@ public class SendIpAddressToMail {
 
     public static void main(String[] args) {
         log.info("启动~~");
+
         SendIpAddressToMail sipmail = new SendIpAddressToMail();
+
+        Properties p = new Properties();
+        try {
+            p.load(ClassLoader.class.getResourceAsStream("/config.properties"));
+
+            String _checkInterval = p.getProperty("checkInterval");
+            if (_checkInterval != null) {
+                sipmail.setCheckInterval(Long.valueOf(_checkInterval));
+            }
+
+            String _retryInterval = p.getProperty("retryInterval");
+            if (_retryInterval != null) {
+                sipmail.setRetryInterval(Long.valueOf(_retryInterval));
+            }
+
+            String _maxRetry = p.getProperty("maxRetry");
+            if (_maxRetry != null) {
+                sipmail.setMaxRetry(Integer.valueOf(_maxRetry));
+            }
+
+            String _mailSendInterval = p.getProperty("mailSendInterval");
+            if (_mailSendInterval != null) {
+                sipmail.setMailSendInterval(Long.valueOf(_mailSendInterval));
+            }
+
+        } catch (IOException e) {
+            log.error("读取配置文件config.properties 异常", e);
+        } catch (Exception e) {
+            log.error("配置异常", e);
+        }
+
         sipmail.run();
     }
 
